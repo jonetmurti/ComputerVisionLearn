@@ -8,7 +8,7 @@ class KNN :
         self.training_labels = training_labels
         self.k_value = k_value
 
-    def euclidDist(matA, matB) :
+    def euclidDist(self, matA, matB) :
         # Numpy Matrix or Matrices with same sizes as input
         dist = np.sqrt(np.sum((np.subtract(matA, matB))**2, axis=1))
         return dist
@@ -16,8 +16,8 @@ class KNN :
     def predict(self, test_images) :
         test_labels = []
         for test_image in test_images :
-            distances = euclidDist(test_image, self.training_images)
+            distances = self.euclidDist(test_image, self.training_images)
             dist_sort = np.argsort(distances)
-            test_labels.append(statistics.mode(this.training_labels[dist_sort[:this.k_value:1]]))
+            test_labels.append(mode(self.training_labels[dist_sort[:self.k_value:1]]))
             
         return test_labels
